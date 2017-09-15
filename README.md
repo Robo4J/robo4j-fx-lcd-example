@@ -1,23 +1,23 @@
-## Robo4J-rpi-lcd-example
-Robo4J RasbpberryPi LCD Demo example
+## Robo4J-fx-lcd-example
+Robo4J JavaFX LCD Demo example
 
-Example using Robo4J to send messages between the buttons and LCD in an Adafruit 2x16 LCD shield, as well as sending messages to the LCD over a REST API.
+Robo4J Example that simulates real behaviour of Adafruit i2c 2x16 RBG LCD Pi plate. The example
+is possible to control not only over the button plate, but also over Http POST request.
 
-The internal sever is accessible on the port 8025 and supports POST requests (no authentication required).
+default available HTTP request types
 
-example : <ROBO4J_IP>:8025
+GET:<br>
+http://<IP>:8025/<br>
+http://<IP>:8025/controller<br>
 
-POST request: 
 
-{ 
-  "commands" : [
-     {"name"  : "up",
-     "target" : "lcd"
-     }
-  ]
-}
-
-POST response: No Information about POST
+POST:<br>
+http://<IP>:8025/controller<br>
+{<br> 
+  "value":"down"<br>
+}<br>
+#####possible values: up, down, select <br>
+example response: AdaruitButtonPlateEnum{button=DOWN, name='D'}
 
 ## Building from Source
 The Robo4j framework uses [Gradle][] to build.
