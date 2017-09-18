@@ -17,8 +17,8 @@
 
 package com.robo4j.fx.lcd.example;
 
-import com.robo4j.core.RoboBuilder;
-import com.robo4j.core.RoboContext;
+import com.robo4j.RoboBuilder;
+import com.robo4j.RoboContext;
 import com.robo4j.fx.lcd.example.controller.LcdFxExampleController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -17,8 +17,8 @@
 
 package com.robo4j.fx.lcd.example.controller;
 
-import com.robo4j.core.RoboContext;
-import com.robo4j.core.RoboUnit;
+import com.robo4j.RoboContext;
+import com.robo4j.RoboUnit;
 import com.robo4j.fx.lcd.example.FxLcdController;
 import com.robo4j.units.rpi.lcd.AdafruitButtonEnum;
 

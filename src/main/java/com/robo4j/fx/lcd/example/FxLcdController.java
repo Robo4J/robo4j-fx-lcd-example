@@ -17,7 +17,7 @@
 
 package com.robo4j.fx.lcd.example;
 
-import com.robo4j.core.RoboContext;
+import com.robo4j.RoboContext;
 import com.robo4j.fx.lcd.example.demo.FxColorDemo;
 import com.robo4j.fx.lcd.example.demo.FxDisplayDemo;
 import com.robo4j.fx.lcd.example.demo.FxExitDemo;
