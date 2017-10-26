@@ -3,12 +3,14 @@ group 'com.robo4j'
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'maven'
+apply plugin: 'application'
 
 apply from: 'libraries.gradle'
 
 version "${robo4jVersion}"
 
 sourceCompatibility = 1.8
+mainClassName = "com.robo4j.fx.lcd.example.FxLcdExample"
 
 repositories {
     mavenCentral()
