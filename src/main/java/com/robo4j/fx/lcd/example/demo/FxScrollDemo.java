@@ -17,7 +17,7 @@
 
 package com.robo4j.fx.lcd.example.demo;
 
-import com.robo4j.hw.rpi.i2c.adafruitlcd.impl.RealLcd.Direction;
+import com.robo4j.hw.rpi.i2c.adafruitlcd.impl.AdafruitLcdImpl.Direction;
 import javafx.concurrent.Task;
 import javafx.scene.control.TextArea;
 
