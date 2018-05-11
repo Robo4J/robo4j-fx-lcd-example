@@ -18,43 +18,41 @@
 package com.robo4j.fx.lcd.example.codec;
 
 
-
-import com.robo4j.socket.http.codec.SimpleCommand;
-import com.robo4j.socket.http.codec.SimpleCommandCodec;
-import com.robo4j.socket.http.units.HttpDecoder;
-import com.robo4j.socket.http.units.HttpEncoder;
+import com.robo4j.socket.http.codec.StringCodec;
+import com.robo4j.socket.http.codec.StringMessage;
 import com.robo4j.socket.http.units.HttpProducer;
+import com.robo4j.socket.http.units.SocketDecoder;
+import com.robo4j.socket.http.units.SocketEncoder;
 import com.robo4j.units.rpi.lcd.AdafruitButtonEnum;
 
 /**
- *
  * @author Marcus Hirt (@hirt)
  * @author Miro Wengner (@miragemiko)
  */
 @HttpProducer
 public class AdafruitButtonEnumToStringCodec
-		implements HttpDecoder<AdafruitButtonEnum>, HttpEncoder<AdafruitButtonEnum> {
-	private final SimpleCommandCodec codec = new SimpleCommandCodec();
+        implements SocketDecoder<String, AdafruitButtonEnum>, SocketEncoder<AdafruitButtonEnum, String> {
+    private final StringCodec codec = new StringCodec();
 
-	@Override
-	public AdafruitButtonEnum decode(String json) {
-		final SimpleCommand simpleCommand = codec.decode(json);
-		return AdafruitButtonEnum.getByText(simpleCommand.getValue());
-	}
+    @Override
+    public AdafruitButtonEnum decode(String json) {
+        final StringMessage message = codec.decode(json);
+        return AdafruitButtonEnum.getByText(message.getMessage());
+    }
 
-	@Override
-	public Class<AdafruitButtonEnum> getDecodedClass() {
-		return AdafruitButtonEnum.class;
-	}
+    @Override
+    public Class<AdafruitButtonEnum> getDecodedClass() {
+        return AdafruitButtonEnum.class;
+    }
 
-	@Override
-	public String encode(AdafruitButtonEnum adafruitButtonEnum) {
-		final SimpleCommand simpleCommand = new SimpleCommand(adafruitButtonEnum.getText());
-		return codec.encode(simpleCommand);
-	}
+    @Override
+    public String encode(AdafruitButtonEnum adafruitButtonEnum) {
+        final StringMessage message = new StringMessage(adafruitButtonEnum.getText());
+        return codec.encode(message);
+    }
 
-	@Override
-	public Class<AdafruitButtonEnum> getEncodedClass() {
-		return AdafruitButtonEnum.class;
-	}
+    @Override
+    public Class<AdafruitButtonEnum> getEncodedClass() {
+        return AdafruitButtonEnum.class;
+    }
 }

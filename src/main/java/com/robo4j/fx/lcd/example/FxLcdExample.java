@@ -54,7 +54,7 @@ public class FxLcdExample extends Application {
         RoboBuilder builder = new RoboBuilder();
         builder.add(Thread.currentThread().getContextClassLoader().getResourceAsStream("robo4j.xml"));
         LcdFxExampleController fxController = new LcdFxExampleController(builder.getContext(), "controller");
-        fxController.setController(controller);
+        fxController.setService(controller);
         builder.add(fxController);
 
         roboSystem = builder.build();

@@ -18,44 +18,39 @@
 package com.robo4j.fx.lcd.example.controller;
 
 import com.robo4j.RoboContext;
-import com.robo4j.RoboUnit;
 import com.robo4j.fx.lcd.example.FxLcdController;
+import com.robo4j.socket.http.units.ExtendedRoboUnit;
 import com.robo4j.units.rpi.lcd.AdafruitButtonEnum;
 
 /**
  * @author Marcus Hirt (@hirt)
  * @author Miro Wengner (@miragemiko)
  */
-public class LcdFxExampleController extends RoboUnit<AdafruitButtonEnum> {
+public class LcdFxExampleController extends ExtendedRoboUnit<AdafruitButtonEnum, FxLcdController> {
 
-    private FxLcdController controller;
 
     public LcdFxExampleController(RoboContext context, String id) {
         super(AdafruitButtonEnum.class, context, id);
     }
 
-    public void setController(FxLcdController controller){
-        this.controller = controller;
-    }
-
     @Override
     public void onMessage(AdafruitButtonEnum message) {
 
-        switch (message){
+        switch (message) {
             case UP:
-                controller.up();
+                getService().up();
                 break;
             case DOWN:
-                controller.down();
+                getService().down();
                 break;
             case LEFT:
-                controller.left();
+                getService().left();
                 break;
             case RIGHT:
-                controller.right();
+                getService().right();
                 break;
             case SELECT:
-                controller.select();
+                getService().select();
                 break;
 
 
