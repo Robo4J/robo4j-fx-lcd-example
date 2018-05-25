@@ -31,12 +31,12 @@ import javafx.scene.control.TextArea;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- *
+ * JavaFx Application controller
  *
  * @author Marcus Hirt (@hirt)
  * @author Miro Wengner (@miragemiko)
  */
-public class FxLcdController {
+public class LcdFxController {
 
 	public static final String DEFAULT_TEXT = "Robo4J: Welcome!\nPress up/down...";
 	private RoboContext system;

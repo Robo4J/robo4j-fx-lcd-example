@@ -19,7 +19,7 @@ package com.robo4j.fx.lcd.example;
 
 import com.robo4j.RoboBuilder;
 import com.robo4j.RoboContext;
-import com.robo4j.fx.lcd.example.controller.LcdFxExampleController;
+import com.robo4j.fx.lcd.example.controller.LcdFxButtonController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -35,9 +35,10 @@ import java.net.URL;
  * @author Marcus Hirt (@hirt)
  * @author Miro Wengner (@miragemiko)
  */
-public class FxLcdExample extends Application {
+public class LcdFxApplication extends Application {
 
     private static final String ROBO4J_CENTER_FXML = "rpiLcdKit.fxml";
+    public static final String ROBO4J_DESCRIPTOR = "robo4j.xml";
     private RoboContext roboSystem;
 
     public static void main(String[] args) throws Exception {
@@ -46,14 +47,14 @@ public class FxLcdExample extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        URL file = Thread.currentThread().getContextClassLoader().getResource(ROBO4J_CENTER_FXML);
+        URL file = LcdFxApplication.class.getClassLoader().getResource(ROBO4J_CENTER_FXML);
         FXMLLoader fxmlLoader = new FXMLLoader(file);
         Pane myPane = fxmlLoader.load();
-        FxLcdController controller = fxmlLoader.getController();
+        LcdFxController controller = fxmlLoader.getController();
 
         RoboBuilder builder = new RoboBuilder();
-        builder.add(Thread.currentThread().getContextClassLoader().getResourceAsStream("robo4j.xml"));
-        LcdFxExampleController fxController = new LcdFxExampleController(builder.getContext(), "controller");
+        builder.add(Thread.currentThread().getContextClassLoader().getResourceAsStream(ROBO4J_DESCRIPTOR));
+        LcdFxButtonController fxController = new LcdFxButtonController(builder.getContext(), "controller");
         fxController.setService(controller);
         builder.add(fxController);
 
@@ -68,6 +69,11 @@ public class FxLcdExample extends Application {
         stage.show();
     }
 
+    /**
+     * on application stop, shutdown robo4j system
+     *
+     * @throws Exception exception
+     */
     @Override
     public void stop() throws Exception {
         roboSystem.shutdown();

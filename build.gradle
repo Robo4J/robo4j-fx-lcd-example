@@ -15,6 +15,10 @@ mainClassName = "com.robo4j.fx.lcd.example.FxLcdExample"
 repositories {
     mavenCentral()
     mavenLocal()
+    maven { url
+        "https://oss.sonatype.org/content/repositories/snapshots/"
+    }
+
 }
 
 task wrapper(type: Wrapper) {

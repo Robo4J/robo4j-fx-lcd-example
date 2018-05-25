@@ -18,7 +18,7 @@
 package com.robo4j.fx.lcd.example.controller;
 
 import com.robo4j.RoboContext;
-import com.robo4j.fx.lcd.example.FxLcdController;
+import com.robo4j.fx.lcd.example.LcdFxController;
 import com.robo4j.socket.http.units.ExtendedRoboUnit;
 import com.robo4j.units.rpi.lcd.AdafruitButtonEnum;
 
@@ -26,10 +26,10 @@ import com.robo4j.units.rpi.lcd.AdafruitButtonEnum;
  * @author Marcus Hirt (@hirt)
  * @author Miro Wengner (@miragemiko)
  */
-public class LcdFxExampleController extends ExtendedRoboUnit<AdafruitButtonEnum, FxLcdController> {
+public class LcdFxButtonController extends ExtendedRoboUnit<AdafruitButtonEnum, LcdFxController> {
 
 
-    public LcdFxExampleController(RoboContext context, String id) {
+    public LcdFxButtonController(RoboContext context, String id) {
         super(AdafruitButtonEnum.class, context, id);
     }
 

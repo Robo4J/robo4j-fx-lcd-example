@@ -17,7 +17,7 @@
 
 package com.robo4j.fx.lcd.example.demo;
 
-import com.robo4j.fx.lcd.example.FxLcdController;
+import com.robo4j.fx.lcd.example.LcdFxController;
 import javafx.concurrent.Task;
 import javafx.scene.control.TextArea;
 
@@ -31,7 +31,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class FxNotImplementedDemo implements FxLcdDemo {
 	private static final int DELAY = 500;
 	private static final String[] COLORS = new String[] { "red", "snow" };
-	private static final String text = "Not Available," + FxLcdController.DEFAULT_TEXT;
+	private static final String text = "Not Available," + LcdFxController.DEFAULT_TEXT;
 	private final String name = "NotAvailable";
 	private TextArea textArea;
 	private Task<Void> task;
