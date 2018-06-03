@@ -47,14 +47,17 @@ public class LcdFxApplication extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        URL file = LcdFxApplication.class.getClassLoader().getResource(ROBO4J_CENTER_FXML);
+        URL file = LcdFxApplication.class.getClassLoader()
+                .getResource(ROBO4J_CENTER_FXML);
         FXMLLoader fxmlLoader = new FXMLLoader(file);
         Pane myPane = fxmlLoader.load();
         LcdFxController controller = fxmlLoader.getController();
 
         RoboBuilder builder = new RoboBuilder();
-        builder.add(Thread.currentThread().getContextClassLoader().getResourceAsStream(ROBO4J_DESCRIPTOR));
-        LcdFxButtonController fxController = new LcdFxButtonController(builder.getContext(), "controller");
+        builder.add(LcdFxApplication.class.getClassLoader()
+                .getResourceAsStream(ROBO4J_DESCRIPTOR));
+        LcdFxButtonController fxController = 
+                new LcdFxButtonController(builder.getContext(), "controller");
         fxController.setService(controller);
         builder.add(fxController);
 

@@ -27,8 +27,7 @@ import com.robo4j.units.rpi.lcd.AdafruitButtonEnum;
  * @author Miro Wengner (@miragemiko)
  */
 public class LcdFxButtonController extends ExtendedRoboUnit<AdafruitButtonEnum, LcdFxController> {
-
-
+    
     public LcdFxButtonController(RoboContext context, String id) {
         super(AdafruitButtonEnum.class, context, id);
     }
@@ -52,8 +51,6 @@ public class LcdFxButtonController extends ExtendedRoboUnit<AdafruitButtonEnum, 
             case SELECT:
                 getService().select();
                 break;
-
-
         }
     }
 }
